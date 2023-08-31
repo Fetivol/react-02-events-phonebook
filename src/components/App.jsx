@@ -70,7 +70,7 @@ export class App extends Component {
             componentsData={visibleItems}
             onDelete={this.deleteContact}
           ></ContactsList>
-        ) : !visibleItems ? (
+        ) : visibleItems ? (
           <span>We didn't find this person</span>
         ) : (
           <ContactsList
