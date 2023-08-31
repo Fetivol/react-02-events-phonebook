@@ -40,7 +40,9 @@ export class App extends Component {
   };
 
   handleChange = filter => {
-    this.setState({ filter });
+    this.setState({
+      filter,
+    });
   };
 
   render() {
@@ -63,13 +65,18 @@ export class App extends Component {
           onChange={this.handleChange}
         ></Filter>
 
-        {!visibleItems ? (
+        {filter === '' ? (
           <ContactsList
             componentsData={visibleItems}
             onDelete={this.deleteContact}
           ></ContactsList>
-        ) : (
+        ) : !visibleItems ? (
           <span>We didn't find this person</span>
+        ) : (
+          <ContactsList
+            componentsData={visibleItems}
+            onDelete={this.deleteContact}
+          ></ContactsList>
         )}
 
         <GlobalStyle />
