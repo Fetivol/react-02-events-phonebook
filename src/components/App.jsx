@@ -38,6 +38,7 @@ export class App extends Component {
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
+
   handleChange = filter => {
     this.setState({ filter });
   };
@@ -61,10 +62,16 @@ export class App extends Component {
           filter={this.state.filter}
           onChange={this.handleChange}
         ></Filter>
-        <ContactsList
-          componentsData={visibleItems}
-          onDelete={this.deleteContact}
-        ></ContactsList>
+
+        {!visibleItems ? (
+          <ContactsList
+            componentsData={visibleItems}
+            onDelete={this.deleteContact}
+          ></ContactsList>
+        ) : (
+          <span>We didn't find this person</span>
+        )}
+
         <GlobalStyle />
       </Layout>
     );
