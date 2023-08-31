@@ -13,11 +13,7 @@ export const List = styled.ul`
   gap: 10px;
 `;
 
-export const ListElem = styled.li`
-  ::placeholder {
-    margin-left: 10px;
-  }
-`;
+export const ListElem = styled.li``;
 
 export const Button = styled.button`
   margin-left: 10px;

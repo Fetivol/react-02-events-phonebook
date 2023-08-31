@@ -15,6 +15,7 @@ export const StyledField = styled(Field)`
   margin-left: 5px;
   background-color: #e8edfc;
   border-radius: 10px;
+  padding-left: 5px;
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
