@@ -18,4 +18,7 @@ export const ListElem = styled.li``;
 export const Button = styled.button`
   margin-left: 10px;
   border-radius: 10px;
+  &:hover {
+    background-color: #fff;
+  }
 `;
