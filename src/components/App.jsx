@@ -1,8 +1,10 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { Phonebook } from './Phonebook/Phonebook';
 import { ContactsList } from './ContactsList/ContactsList';
-import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
+import { GlobalStyle } from './GlobalStyle';
+import { Layout } from './Layout';
 
 export class App extends Component {
   state = {
@@ -48,7 +50,7 @@ export class App extends Component {
     );
 
     return (
-      <div>
+      <Layout>
         <h1>Phonebook</h1>
         <Phonebook
           contacts={this.state.contacts}
@@ -63,7 +65,8 @@ export class App extends Component {
           componentsData={visibleItems}
           onDelete={this.deleteContact}
         ></ContactsList>
-      </div>
+        <GlobalStyle />
+      </Layout>
     );
   }
 }

@@ -1,24 +1,27 @@
+import {
+  List,
+  ListElem,
+  Button,
+} from 'components/ContactsList/ContactsList.styled';
+
 export const ContactsList = ({ componentsData, onDelete }) => {
-  console.log(componentsData);
   return (
-    <div>
-      <ul>
-        {componentsData.map(({ id, name, number }) => {
-          return (
-            <li key={id}>
-              {name}: {number}
-              <button
-                type="button"
-                onClick={() => {
-                  onDelete(id);
-                }}
-              >
-                delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <List>
+      {componentsData.map(({ id, name, number }) => {
+        return (
+          <ListElem key={id}>
+            {name}: {number}
+            <Button
+              type="button"
+              onClick={() => {
+                onDelete(id);
+              }}
+            >
+              Delete
+            </Button>
+          </ListElem>
+        );
+      })}
+    </List>
   );
 };
