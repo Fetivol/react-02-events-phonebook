@@ -55,28 +55,20 @@ export class App extends Component {
     return (
       <Layout>
         <h1>Phonebook</h1>
-        <Phonebook
-          contacts={this.state.contacts}
-          onAdd={this.addToContacts}
-        ></Phonebook>
+        <Phonebook onAdd={this.addToContacts}></Phonebook>
         <h2>Contacts</h2>
         <Filter
           filter={this.state.filter}
           onChange={this.handleChange}
         ></Filter>
 
-        {filter === '' ? (
+        {visibleItems.length > 0 ? (
           <ContactsList
             componentsData={visibleItems}
             onDelete={this.deleteContact}
           ></ContactsList>
-        ) : visibleItems ? (
-          <span>We didn't find this person</span>
         ) : (
-          <ContactsList
-            componentsData={visibleItems}
-            onDelete={this.deleteContact}
-          ></ContactsList>
+          <span>We didn't find this person</span>
         )}
 
         <GlobalStyle />
